@@ -23,7 +23,7 @@ var zipForm = function (event){
 
 
 var getTodayWeather = function (zip) {
-    var todayApi = 'https://api.openweathermap.org/data/2.5/weather?zip='+zip+'&appid=8066018655ed008933d2f7b865448329';
+    var todayApi = 'https://api.openweathermap.org/data/2.5/weather?zip='+zip+'&units=imperial&appid=8066018655ed008933d2f7b865448329';
 
     fetch(todayApi)
         .then(function (response) {
@@ -38,7 +38,7 @@ var getTodayWeather = function (zip) {
 }
 
 var getAreaMenu = function (zip) {
-    var menuApi = 'https://api.documenu.com/v2/restaurants/zip_code/'+zip+'?key=a066d36aaebc3eeceb6e2edd2c821cbb&amp;fullmenu&amp;size=100&amp;page=2&amp;cuisine';
+    var menuApi = 'https://api.documenu.com/v2/restaurants/zip_code/'+zip+'?key=a066d36aaebc3eeceb6e2edd2c821cbb&fullmenu=true&size=50&page=1';
 
     fetch(menuApi)
         .then(function (response) {
@@ -46,11 +46,25 @@ var getAreaMenu = function (zip) {
                 console.log(response);
                 response.json().then(function (data) {
                     console.log(data);
+
+
+                    for (var i = 0; i < 10; i++) {
+                        var name = data.data[i].restaurant_name;
+                        var address = data.data[i].address.formatted;
+                       var  phone = data.data[i].restaurant_phone;
+                       var website = data.data[i].restaurant_website;
+
+                       console.log('name',name);
+                       console.log('address',address);
+                       console.log('phone',phone);
+                       console.log('website',website);
+                    }
                     
                 })
             }
         })
 }
+
 
 
 zipFormEl.addEventListener('submit', zipForm);
