@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Your Food</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel='stylesheet' href='./assets/css/style.css'/>
+    <title>Find Your Food</title>
+    
 </head>
+<body class="flex-column min-100-vh">
+    <header class='hero'>
+        <h1 class='app-title'>Weather DashBoard</h1>
+    </header>
+    <main class="flex row justify-space-between">
+        <div class='col-12 col-md-4'>
+            <div class='card'>'
+                <h3 class='card-header'>Search for a City:</h3>
+                <form id="zip-form" class='card-body'>
+                    <label class='form-label'
+                    for='Zip'>Zip Code</label>
+                    <input name='Zip' id="Zip" type='text' autofocus='true' class='form-input'/>
+                    <button type='submit' class='btn'>Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class='col-12 col-md-8'>
+            <div id="today-container" class='today-box'></div>
+            <div id='menu-container' class='menu-list'></div>
+        </div>
 <body>
     <div class = "header">
         <h3 class="ui block header">Patio Dining</h3>
@@ -19,21 +57,26 @@
             </button>
         </div>
     </div>
-    <div class = "searchResults">
-        <div class="ui list">
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-            <a class="item"></a>
-          </div>
+    <div class = "container">
+        <div class = "searchResults">
+            <div class="ui list">
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+                <a class="item">Search Result</a>
+            </div>
+        </div>
     </div>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script> -->
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
