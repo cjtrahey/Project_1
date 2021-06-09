@@ -16,6 +16,8 @@ The purpose of this guide . . .
 
 > [Kristie Blankenship](https://github.com/)
 
+> [CJ Trahey](https://github.com/cjtrahey)
+
 <br/>
 
 ## II. APIs
