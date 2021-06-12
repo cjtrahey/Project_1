@@ -1,6 +1,6 @@
   
-var zipFormEl = document.querySelector('#zip-form');
-var zipInputEl = document.querySelector('#Zip');
+var pokeFormEl = document.querySelector('#poke-form');
+var pokeInputEl = document.querySelector('#poke');
 var todayBox = document.querySelector('#today-box');
 var menuList = document.querySelector('#menu-list');
 var abilities
@@ -9,14 +9,14 @@ var stats
 var item
 
 
-var zipForm = function (event){
+var pokeForm = function (event){
     event.preventDefault();
 
-    var pokemon = zipInputEl.value.trim();
+    var pokemon = pokeInputEl.value.trim();
     if(pokemon) {
 
-        getTodayWeather(pokemon);
-        hotelDisplay(pokemon);
+        generalPokedex(pokemon);
+        smogon(pokemon);
         Stats(pokemon);
         console.log(pokemon);
 
@@ -27,10 +27,10 @@ var zipForm = function (event){
 
 
 
-var getTodayWeather = function (pokemon) {
-    var todayApi = 'https://pokeapi.co/api/v2/pokemon-species/'+pokemon+'/';
+var generalPokedex = function (pokemon) {
+    var pokeApi = 'https://pokeapi.co/api/v2/pokemon-species/'+pokemon+'/';
 
-    fetch(todayApi)
+    fetch(pokeApi)
         .then(function (response) {
             if (response.ok) {
                 console.log(response);
@@ -112,7 +112,7 @@ var Stats = function (pokemon) {
 //         })
 // }
 
-function hotelDisplay(pokemon) {
+functions smogon(pokemon) {
     var requestUrl = 'https://cors-anywhere.herokuapp.com/https://smogon-usage-stats.herokuapp.com/gen8ou/'+pokemon;
 
     fetch(requestUrl)
