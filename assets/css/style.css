@@ -9,8 +9,14 @@ body {
 }
 
 .pokedex-image {
-        background-image: url("../images/pokedex-background.png")
+        background-image: url("../images/pokedex-background.png");
         /* border-radius: 10px; */
         width: 50px;
         max-width: 100%;
+}
+
+.ui-modal {
+    $('.ui.modal')
+     .modal('show')
+    ;
 }
