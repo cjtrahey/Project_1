@@ -4,43 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel='stylesheet' href='./assets/css/style.css'/>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/1eef38c013.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='./assets/css/style.css'/>
+    <title>PokeDex</title>
     
     <title>PokeDex</title>
 
 </head>
 <body>
-
-    <header class="title-img">
-        <img src="assets/images/Pokédex_logo.png">
-    </header>
-
-
-    <div class= "pokedex-container">
-        <div class="pokedex-information">
-            <ul>
-                <li>
-                    <input type="radio" id="a" name="answer">
-                        <label id="a_text" for="a">Question</label>
-                </li>
-                <li>
-                    <input type="radio" id="c" name="answer">
-                        <label id="b_text" for="c">Question</label>
-                </li>
-                <li>
-                    <input type="radio" id="c" name="answer">
-                        <label id="c_text" for="c">Question</label>
-                </li>
-                <li>
-                    <input type="radio" id="d" name="answer">
-                        <label id="d_text" for="d">Question</label>
-                </li>
-                <button id= "enter">Enter</button>
-            </ul>
-        </div>
+    <div class= "pokedex-image">
+        <div class= "pokedex-window">
     </div>
 
+    <div class="ui-modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Profile Picture
+        </div>
+        <div class="image content">
+          <div class="ui medium image">
+            <img src="/images/avatar/large/chris.jpg">
+          </div>
+          <div class="description">
+            <div class="ui header">We've auto-chosen a profile image for you.</div>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            Nope
+          </div>
+          <div class="ui positive right labeled icon button">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+    </div>
+ 
 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 <script src= "assets/js/script.js"></script>
 </html>
