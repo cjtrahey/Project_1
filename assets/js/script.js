@@ -1,3 +1,4 @@
+
 var pokeFormEl = document.querySelector('#poke-form');
 var pokeInputEl = document.querySelector('#poke');
 var todayBox = document.querySelector('#today-box');
@@ -6,6 +7,12 @@ var abilities
 var moves
 var stats
 var item
+
+var pastPokemon = [];
+console.log('pastpokemon', pastPokemon);
+
+var storedPokemon = JSON.parse(localStorage.getItem('Pokemon'));
+console.log('storedPokemon',storedPokemon);
 
 
 var pokeForm = function (event){
@@ -16,6 +23,8 @@ var pokeForm = function (event){
 
         generalPokedex(pokemon);
         smogon(pokemon);
+        pastPokemon.push(pokemon);
+        localStorage.setItem('Pokemon', JSON.stringify(pastPokemon));
         Stats(pokemon);
         console.log(pokemon);
 
@@ -55,12 +64,18 @@ var Stats = function (pokemon) {
                 response.json().then(function (data) {
                     console.log(data);
 
-                var hp = data.stats[0].base_stat;
-                var attack = data.stats[1].base_stat;
-                var defense = data.stats[2].base_stat;
-                var special_att = data.stats[3].base_stat;
-                var special_def = data.stats[4].base_stat;
-                var speed = data.stats[5].base_stat;
+                var hp = Number(data.stats[0].base_stat);
+                var attack = Number(data.stats[1].base_stat);
+                var defense = Number(data.stats[2].base_stat);
+                var special_att = Number(data.stats[3].base_stat);
+                var special_def = Number(data.stats[4].base_stat);
+                var speed = Number(data.stats[5].base_stat);
+                var bst = hp + attack + defense + special_att + special_def + speed;
+
+                var height = data.height;
+                var weight = data.weight;
+
+                var sprite = data.sprites.front_default;
                 
                 console.log('HP',hp);
                 console.log('attack', attack);
@@ -68,6 +83,14 @@ var Stats = function (pokemon) {
                 console.log('specialattack', special_att);
                 console.log('special_def', special_def);
                 console.log('speed', speed);
+                console.log('bst',bst);
+
+                console.log('height',height);
+                console.log('weight',weight);
+
+                var image = document.createElement('img')
+                    image.src = sprite
+                    document.body.appendChild(image)
 
                 for (var i = 0; i < data.types.length; i++) {
                     var type = data.types[i].type;
@@ -79,42 +102,10 @@ var Stats = function (pokemon) {
         })
 }
 
-// var getAreaMenu = function (zip) {
-//     var menuApi = 'https://api.documenu.com/v2/restaurants/zip_code/'+zip+'?key=a066d36aaebc3eeceb6e2edd2c821cbb&fullmenu=true&size=50&page=1';
+function smogon(pokemon) {
+    var smogonData = 'https://cors-anywhere.herokuapp.com/https://smogon-usage-stats.herokuapp.com/gen8ou/'+pokemon;
 
-//     fetch(menuApi)
-//         .then(function (response) {
-//             if (response.ok) {
-//                 console.log(response);
-//                 response.json().then(function (data) {
-//                     console.log(data);
-//                     var cityName = data.data[0].address.city
-//                     console.log(cityName);
-
-//                     hotelDisplay(cityName);
-
-//                     for (var i = 0; i < 10; i++) {
-//                         var name = data.data[i].restaurant_name;
-//                         var address = data.data[i].address.formatted;
-//                        var  phone = data.data[i].restaurant_phone;
-//                        var website = data.data[i].restaurant_website;
-                       
-
-//                        console.log('name',name);
-//                        console.log('address',address);
-//                        console.log('phone',phone);
-//                        console.log('website',website);
-//                     }
-                    
-//                 })
-//             }
-//         })
-// }
-
-functions smogon(pokemon) {
-    var requestUrl = 'https://cors-anywhere.herokuapp.com/https://smogon-usage-stats.herokuapp.com/gen8ou/'+pokemon;
-
-    fetch(requestUrl)
+    fetch(smogonData)
         .then(function (response) {
             return response.json();
         })
@@ -138,4 +129,4 @@ functions smogon(pokemon) {
 
 
 
-zipFormEl.addEventListener('submit', zipForm);
+pokeFormEl.addEventListener('submit', pokeForm);
