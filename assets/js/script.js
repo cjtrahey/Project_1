@@ -146,5 +146,6 @@ function smogon(pokemon) {
 }
 
 
-// eventlistner for searchbutton
+// eventlistener for searchbutton
 pokeFormEl.addEventListener('submit', pokeForm);
+
