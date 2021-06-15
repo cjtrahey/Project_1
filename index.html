@@ -34,15 +34,6 @@
     
 </head>
 <body>
-
-
-    <div class = "poke-form">
-        <div class="ui action input">
-            <input type="text" placeholder="Search...">
-             <button class="ui icon button">
-                 <i class="search icon"></i>
-            </button>
-
   <div class="wrapper">
     <!-- Header and Navigation -->
     <div class="container">
@@ -62,49 +53,90 @@
             <h2 class="ui header">Search Pokeman by Name:</h2>
             <!-- Search Field -->
             <div class="ui search">
-              <div class="ui icon input">
-                <input 
-                  class="prompt" 
-                  type="text" 
-                  placeholder="Search for a Pokemon . . .">
-                <i class="search icon"></i>
-              </div>
+                <form id="poke-form">
+                    <div class="ui icon input">
+                        <input 
+                        id= "poke"
+                        class="poke-form" 
+                        type="text" 
+                        placeholder="Search for a Pokemon . . .">
+                        <i class="search icon"></i>
+                    </div>
+                </form>
             </div>
             <!-- Horizontal Divider, Add'l Results Can Go Here -->
             <div class="ui divider"></div>
             <p><strong>Additional Results Can Go Here</strong></p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <div class="ui card">
+                <div class="image">
+                <img src="assets/images/placeholder-image.png">
+                </div>
+                <!-- <div class="content">
+                    <a class="header" id="pokemon-name"></a>
+                    <div class="smogonapi-info">
+                        <p id="ability"></p>
+                        <p id="items"></p>
+                        <p id="moves"></p>
+                        <p id="spreads"></p>
+                    </div>
+                </div> -->
+            </div>
           </div>
-
         </div>
         <!-- Poke API Column -->
         <div class="eight wide column">
-          <div class="pokeman-search-results">
-            <!-- . . . Poke API Results Go Here . . . -->
-            <p><strong>Poke API Results Go Here</strong></p>
-          </div>
+            <div class="pokeman-search-results">
+                <!-- . . . Poke API Results Go Here . . . -->
+                <p><strong>Poke API Results Go Here</strong></p>
+                <div class="ui card">
+                    <div class="image" id="poke-image">
+                    <img src="assets/images/placeholder-image.png">
+                    </div>
+                    <div class="content">
+                        <a class="header" id="pokemon-name"></a>
+                        <div class="pokeapi-info">
+                            <p id="hp"></p>
+                            <p id="attack"></p>
+                            <p id="defense"></p>
+                            <p id="special_att"></p>
+                            <p id="special_def"></p>
+                            <p id="speed"></p>
+                            <p id="bst"></p>
+                            <p id="height"></p>
+                            <p id="weight"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Smogon Usage Stats API Column -->
         <div class="four wide column">
           <div class="smogon-search-results">
-            <!-- . . . Smogon API Results Go Here . . . -->
-            <p><strong>Smogon API Results Go Here</strong></p>
+                <!-- . . . Smogon API Results Go Here . . . -->
+                <p><strong>Smogon API Results Go Here</strong></p>
+                <div class="ui card">
+                    <div class="image">
+                    <img src="assets/images/placeholder-image.png">
+                    </div>
+                    <div class="content">
+                        <a class="header" id="pokemon-name"></a>
+                        <div class="smogonapi-info">
+                            <p id="ability"></p>
+                            <p id="items"></p>
+                            <p id="moves"></p>
+                            <p id="spreads"></p>
+                        </div>
+                    </div>
+                </div>
           </div>
         </div>
-      </div>
     </main>
     <footer>
 
     </footer>
   </div>
+
+  
   
     <!-- Is this actually being used in the project or just a filler for now? -->
 
@@ -126,19 +158,19 @@
 
     <!-- REVIEW NEXT, Incorporate anything to keep below to the grid above -->
 
-    <!-- <div class="ui-modal">
+     <!-- <div class="ui-modal">
         <i class="close icon"></i>
         <div class="header" id="picture">
-          Profile Picture
+          Pokemon Name:
         </div>
         <div class="image content">
           <div class="ui medium image">
-            <img src="/images/avatar/large/chris.jpg">
+            <img src="assets/images/placeholder-image.png">
           </div>
           <div class="description">
             <div class="ui header" id="pokemon-name">We've auto-chosen a profile image for you.</div>
-            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
+            <p></p>
+            <p></p>
           </div>
         </div>
         <div class="actions">
@@ -151,6 +183,8 @@
           </div>
         </div>
     </div> -->
+
+   
  
 
     <!-- JavaScript Libraries -->
