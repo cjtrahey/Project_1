@@ -1,4 +1,4 @@
-
+// initial variable declaration
 var pokeFormEl = document.querySelector('#poke-form');
 var pokeInputEl = document.querySelector('#poke');
 var todayBox = document.querySelector('#today-box');
@@ -11,10 +11,25 @@ var item
 var pastPokemon = [];
 console.log('pastpokemon', pastPokemon);
 
+function pokestorage () {
+    var form = document.createElement('form');
+    form.className = 'previousFrom';
+
+    var select = document.createElement('select')
+    select.setAttribute =('id', 'myPokemon');
+
+    for (var i = 0; i < pastPokemon.length; i++) {
+        var option = document.createElement('option')
+        option.innerText = pastPokemon[i];
+        // select.appendChild()
+    }
+}
+
+// stores the pokemon data in an array in local starage
 var storedPokemon = JSON.parse(localStorage.getItem('Pokemon'));
 console.log('storedPokemon',storedPokemon);
 
-
+// function of the search button
 var pokeForm = function (event){
     event.preventDefault();
 
@@ -34,7 +49,7 @@ var pokeForm = function (event){
 };
 
 
-
+// first api call for pokeapi primarily obtains flavor text
 var generalPokedex = function (pokemon) {
     var pokeApi = 'https://pokeapi.co/api/v2/pokemon-species/'+pokemon+'/';
 
@@ -54,6 +69,7 @@ var generalPokedex = function (pokemon) {
         })
 }
 
+// second call of pokeapi obtains base stats
 var Stats = function (pokemon) {
     var baseStats = 'https://pokeapi.co/api/v2/pokemon/'+pokemon+'/';
 
@@ -70,6 +86,7 @@ var Stats = function (pokemon) {
                 var special_att = Number(data.stats[3].base_stat);
                 var special_def = Number(data.stats[4].base_stat);
                 var speed = Number(data.stats[5].base_stat);
+                // creates base stat total from stat values obtained from api
                 var bst = hp + attack + defense + special_att + special_def + speed;
 
                 var height = data.height;
@@ -88,6 +105,7 @@ var Stats = function (pokemon) {
                 console.log('height',height);
                 console.log('weight',weight);
 
+// locates sprite image in api object and creates element to display
                 var image = document.createElement('img')
                     image.src = sprite
                     document.body.appendChild(image)
@@ -101,7 +119,7 @@ var Stats = function (pokemon) {
             }
         })
 }
-
+// smogon api call to locate competative data
 function smogon(pokemon) {
     var smogonData = 'https://cors-anywhere.herokuapp.com/https://smogon-usage-stats.herokuapp.com/gen8ou/'+pokemon;
 
@@ -128,5 +146,5 @@ function smogon(pokemon) {
 }
 
 
-
+// eventlistner for searchbutton
 pokeFormEl.addEventListener('submit', pokeForm);
