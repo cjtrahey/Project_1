@@ -15,8 +15,4 @@ body {
         max-width: 100%;
 }
 
-.ui-modal {
-    $('.ui.modal')
-     .modal('show')
-    ;
-}
+ 
