@@ -44,8 +44,10 @@ button {
 
  .smogon-search-results{
     display: flex;
-    flex-wrap: wrap;
-    /* align-items: center;
-    justify-content: center; 
-    font-family: Georgia, 'Times New Roman', Times, serif; */
+    flex-flow: column wrap;
+ }
+
+ #sprite {
+     display: flex;
+     justify-content: center;
  }
