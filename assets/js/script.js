@@ -22,29 +22,17 @@ var typeShow = document.getElementById('type');
 
 var pokeSprite = document.getElementById('sprite');
 var pokeName = document.getElementById('pokemon-name');
-var history = document.querySelector('#history');
+var history = document.getElementById('history');
 var description = document.getElementById('description');
 
-var pastPokemon = [];
+var pastPokemon = []
 console.log('pastpokemon', pastPokemon);
 
 var typeList
 
 
 
-// function pokestorage () {
-//     var form = document.createElement('form');
-//     form.className = 'previousFrom';
 
-//     var select = document.createElement('select')
-//     select.setAttribute =('id', 'myPokemon');
-
-//     for (var i = 0; i < pastPokemon.length; i++) {
-//         var option = document.createElement('option')
-//         option.innerText = pastPokemon[i];
-//         // select.appendChild(pastPokemon[i])
-//     }
-// }
 
 // stores the pokemon data in an array in local starage
 var storedPokemon = JSON.parse(localStorage.getItem('Pokemon'));
@@ -55,15 +43,17 @@ if (storedPokemon != null){
 }
 
 function renderPokemon() {
-    for (var i = 0; i < pastPokemon; i++) {
-        history.innerHTML = "";
+    console.log("unique",pastPokemon)
+    for (var i = 0; i < pastPokemon.length; i++) {
+       
         var poke = pastPokemon[i];
+        console.log(poke);
 
         var li = document.createElement('li');
         li.textContent = poke;
         li.setAttribute('data-index', i);
 
-        history.appendChild(li);
+        document.getElementById('history').appendChild(li);
     }
 }
 
@@ -83,17 +73,20 @@ var pokeForm = function (event){
         localStorage.setItem('Pokemon', JSON.stringify(pastPokemon));
         Stats(pokemon);
         console.log(pokemon);
+        document.getElementById('history').innerHTML = "";
+        renderPokemon();
 
-        var parent;
+        // var parent;
 
-        for(typeList in pokeName) {
-            parent = typeList.parentNode;
-            parent.removeChild(typeList);
-        }
+        // for(typeList in pokeName) {
+        //     parent = typeList.parentNode;
+        //     parent.removeChild(typeList);
+        // }
 
-        if(image){
-            removeChild(image);
-        }
+        // if(image){
+        //     removeChild(image);
+        // }
+
        
 
     } else {
@@ -179,10 +172,10 @@ var Stats = function (pokemon) {
 
 
                 console.log('height',height);
-                hgt.innerText = "Height: " + height;
+                hgt.innerText = "Height: " + height + ' dm';
 
                 console.log('weight',weight);
-                wgt.innerText = "Weight: " + weight;
+                wgt.innerText = "Weight: " + weight + ' hg';
 
 
 
@@ -256,22 +249,11 @@ function smogon(pokemon) {
 
 }
 
-// for (var i=0; i < storedPokemon.length; i++) {
-//     var pokemonButton = document.createElement('input');
-
-//     pokemonButton.setAttribute("type","text");
-//     pokemonButton.setAttribute('readonly',"true");
-//     pokemonButton.getAttribute('value', storedPokemon[i]);
-//     pokemonButton.addEventListener('click',function() {
-//         generalPokedex(pokemonButton.value);
-//         Stats(pokemonButton.value);
-//         smogon(pokemonButton.value);
-//     })
-//     document.body.append(pokemonButton);
-// }
-
-renderPokemon();
-
+document.addEventListener("DOMContentLoaded", function() {
+    renderPokemon();
+    console.log('hello world');
+  });
+  
 // eventlistener for searchbutton
 pokeFormEl.addEventListener('submit', pokeForm);
 
