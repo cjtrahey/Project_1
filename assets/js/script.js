@@ -150,7 +150,7 @@ var Stats = function (pokemon) {
 // locates sprite image in api object and creates element to display
                 var image = document.createElement('img')
                     image.src = sprite
-                    document.body.appendChild(image)
+                    document.getElementById("sprite").appendChild(image)
 
 
                 for (var i = 0; i < data.types.length; i++) {
@@ -205,5 +205,6 @@ function smogon(pokemon) {
 }
 
 
-// eventlistner for searchbutton
+// eventlistener for searchbutton
 pokeFormEl.addEventListener('submit', pokeForm);
+
