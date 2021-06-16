@@ -239,15 +239,16 @@ function smogon(pokemon) {
 
             console.log('spreads',spreads)
             statsArray = JSON.stringify(spreads)
+            stats.innerText = statsArray;
             
-           var nature = Object.keys(spreads);
-            var statSpread = Object.values(spreads);
-            var superSpread = Object.values(statSpread);
-            var actualSpread = (Object.values(superSpread));
-            var spreadSpread = (Object.values(actualSpread))
-            console.log(spreadSpread);
+        //    var nature = Object.keys(spreads);
+        //     var statSpread = Object.values(spreads);
+        //     var superSpread = Object.values(statSpread);
+        //     var actualSpread = (Object.values(superSpread));
+        //     var spreadSpread = (Object.values(actualSpread))
+        //     console.log(spreadSpread);
 
-            stats.innerText = nature[0] + Object.values(statSpread)[Object.keys(0)];
+        //     stats.innerText = nature[0] + Object.values(statSpread)[Object.keys(0)];
             
         })
 

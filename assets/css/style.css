@@ -40,11 +40,11 @@ button {
     text-align: center;
 }
 
-.pokedex-image {
+#pokeapi-image {
     /* background-image: url("../images/pokedex-background.png"); */
     /* border-radius: 10px; */
-    width: 50px;
-    max-width: 100%;
+    width: 100vh;
+    max-width: 50%;
 }
 
 .pokeman-search-results {
@@ -65,8 +65,8 @@ button {
  }
 
 #smogon-image {
-    width: 50%;
-    height: 50%;
+    width: 20vh;
+    height: 20vh;
 }
 
 #smogon-image-box {
