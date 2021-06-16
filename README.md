@@ -155,8 +155,17 @@ The following technologies were used in the creation of this group project:
 ## Example
 
 </center>
+    
+<p><br>
+Wireframe proposal:
+<p><br>
+    
+![image info](./assets/iamges/actual-wireframe.png)
 
 <p><br>
+
+Final Project:
+<br>
 
 ![image info](./assets/images/app_photo_one_screen.png)
 
