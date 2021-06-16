@@ -179,5 +179,10 @@ In the future, further development on this project would include:
 > [PokeAPI](https://pokeapi.co/)
 
 > [Smogon Usage Stats](https://smogon-usage-stats.herokuapp.com/)
-
+<p>
+<br>
+<center>
+This app is not affiliated, endorsed or supported by Nintendo in any way, also some images used in this app are copyrighted and supported under fair use, Pokemon and Pokemon character names are trademark of Nintendo, no copyright infringement intended. Pokemon (C) 2002-2020 Pokemon.
+</center>
+        
 
