@@ -42,6 +42,7 @@ button {
     max-width: 100%;
 }
 
+
  .smogon-search-results{
     display: flex;
     flex-flow: column wrap;
@@ -51,3 +52,4 @@ button {
      display: flex;
      justify-content: center;
  }
+
