@@ -7,7 +7,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center; 
-        font-family: Georgia, 'Times New Roman', Times, serif;*/
+        font-family: Georgia, 'Times New Roman', Times, serif; */
 
     margin: 0 auto;
     min-height: 100vh;
@@ -42,4 +42,10 @@ button {
     max-width: 100%;
 }
 
- 
+ .smogon-search-results{
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center;
+    justify-content: center; 
+    font-family: Georgia, 'Times New Roman', Times, serif; */
+ }
