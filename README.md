@@ -156,7 +156,10 @@ The following technologies were used in the creation of this group project:
 
 </center>
 
-* need a final image of webpage here
+<p><br>
+
+![image info](./assets/images/app_photo_one_screen.png)
+
 
 <center>
 
