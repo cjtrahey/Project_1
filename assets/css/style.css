@@ -53,3 +53,20 @@ button {
      justify-content: center;
  }
 
+#smogon-image {
+    width: 50%;
+    height: 50%;
+}
+
+#smogon-image-box {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+
+#poke-image {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
