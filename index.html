@@ -40,13 +40,10 @@
       <header>
         <h1>Welcome to PokeDex!</h1>
       </header>
-      <nav>
-        <!-- Navigation Menu ??? -->
-      </nav>
     </div>
-    <!-- Semantic UI Grid (16), https://semantic-ui.com/examples/grid.html -->
+    <!-- Semantic UI Grid (16) -->
     <main>
-      <div class="ui three column grid">
+      <div class="ui stackable three column grid">
         <!-- Search Column -->
         <div class="four wide column">
           <div class="ui segment">
@@ -67,8 +64,9 @@
             <!-- Horizontal Divider, Picture of sprite goes here -->
             <div class="ui divider"></div>
             <p><strong></strong></p>
-              <div class="ui card">
+              <div class="ui card fluid raised">
                 <div id = "sprite" class="img">
+                <!-- Add Sprite Image Result Here -->
                 <img src="">
               </div>
             </div>
@@ -78,10 +76,9 @@
         <div class="six wide column">
             <div class="pokeman-search-results">
                 <!-- . . . Poke API Results Go Here . . . -->
-                <p><strong>Poke API Results</strong></p>
-                <div class="ui card">
+                <div class="ui card fluid raised">
                     <div class="image" id="poke-image">
-                    <img id="pokeapi-image"src="assets/images/pokeapi_256.png">
+                    <img id="pokeapi-image"src="./assets/images/pokeapi_256.png">
                     </div>
                     <div class="content">
                         <a class="header" id="pokemon-name"></a>
@@ -106,10 +103,9 @@
         <div class="six wide column">
           <div class="smogon-search-results">
                 <!-- . . . Smogon API Results Go Here . . . -->
-                <p><strong>Smogon API Results</strong></p>
-                <div class="ui card">
+                <div class="ui card fluid raised">
                     <div class="image" id="smogon-image-box">
-                    <img id ="smogon-image" src="assets/images/zracknel-beta.svg">
+                    <img id ="smogon-image" src="./assets/images/zracknel-beta.svg">
                     </div>
                     <div class="content">
                         <a class="header" id="pokemon-name"></a>
@@ -129,61 +125,8 @@
         </div>
         <ul id = "history"></ul>
     </main>
-    <footer>
-
-    </footer>
   </div>
 
-  
-  
-    <!-- Is this actually being used in the project or just a filler for now? -->
-
-        <!-- <div class= "pokedex-image">
-            <div class= "pokedex-window">
-        </div> -->
-
-    <!-- Reworked layout, delete <input> after testing -->
-
-        <!-- <div class = "poke-form">
-            <div class="ui action input">
-                <input type="text" placeholder="Search...">
-                <button class="ui icon button">
-                    <i class="search icon"></i>
-                </button>
-            </div>
-        </div> -->
-
-
-    <!-- REVIEW NEXT, Incorporate anything to keep below to the grid above -->
-
-     <!-- <div class="ui-modal">
-        <i class="close icon"></i>
-        <div class="header" id="picture">
-          Pokemon Name:
-        </div>
-        <div class="image content">
-          <div class="ui medium image">
-            <img src="assets/images/placeholder-image.png">
-          </div>
-          <div class="description">
-            <div class="ui header" id="pokemon-name">We've auto-chosen a profile image for you.</div>
-            <p></p>
-            <p></p>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui black deny button">
-            Nope
-          </div>
-          <div class="ui positive right labeled icon button">
-            Yep, that's me
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-    </div> -->
-
-   
- 
 
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>

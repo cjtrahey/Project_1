@@ -1,7 +1,4 @@
 body {
-    /* Is PNG actually being used in the project or just a filler for now? */
-        /* background-image: url("../images/newbarktown.png"); */
-
     /* Review, Not sure if font-family is actually needed here */
         /* 
         display: flex;
@@ -26,7 +23,16 @@ header, h1 {
 }
 
 .ui .segment {
- background: linear-gradient(180deg, lightblue, rgb(245, 124, 80));
+    display: flex;
+    flex-wrap: wrap;
+    margin: .5vh;
+    background: linear-gradient(180deg, lightblue, rgb(245, 124, 80));
+}
+
+.ui .card {
+    display: flex;
+    flex-wrap: wrap;
+    margin: .5vh;
 }
 
 button {
@@ -34,7 +40,6 @@ button {
     text-align: center;
 }
 
-/* Is PNG actually being used in the project or just a filler for now? */
 .pokedex-image {
     /* background-image: url("../images/pokedex-background.png"); */
     /* border-radius: 10px; */
@@ -42,10 +47,16 @@ button {
     max-width: 100%;
 }
 
+.pokeman-search-results {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1vh;
+}
 
  .smogon-search-results{
     display: flex;
     flex-flow: column wrap;
+    margin: 1vh;
  }
 
  #sprite {
