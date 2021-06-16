@@ -160,7 +160,7 @@ The following technologies were used in the creation of this group project:
 Wireframe proposal:
 <p><br>
     
-![image info](./assets/iamges/actual-wireframe.png)
+![image info](./assets/images/actual-wireframe.png)
 
 <p><br>
 
