@@ -42,4 +42,14 @@ button {
     max-width: 100%;
 }
 
- 
+
+ .smogon-search-results{
+    display: flex;
+    flex-flow: column wrap;
+ }
+
+ #sprite {
+     display: flex;
+     justify-content: center;
+ }
+

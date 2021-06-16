@@ -90,6 +90,10 @@ var pokeForm = function (event){
             parent = typeList.parentNode;
             parent.removeChild(typeList);
         }
+
+        if(image){
+            removeChild(image);
+        }
        
 
     } else {
@@ -183,10 +187,11 @@ var Stats = function (pokemon) {
 
 
 // locates sprite image in api object and creates element to display
+                
                 var image = document.createElement('img')
                     image.src = sprite
-                    document.body.appendChild(image)
-
+                    document.getElementById("sprite").appendChild(image)
+                    
 
                 for (var i = 0; i < data.types.length; i++) {
                     
@@ -228,13 +233,22 @@ function smogon(pokemon) {
             item.innerText = itemArray;
 
             console.log('moves',moves);
-            movesArray = JSON.stringify(moves)
+            var moveList = Object.keys(moves); 
+            movesArray = JSON.stringify(moveList);
             pokeMoves.innerText = movesArray;
 
             console.log('spreads',spreads)
             statsArray = JSON.stringify(spreads)
-            stats.innerText = statsArray;
+            
+           var nature = Object.keys(spreads);
+            var statSpread = Object.values(spreads);
+            var superSpread = Object.values(statSpread);
+            var actualSpread = (Object.values(superSpread));
+            var spreadSpread = (Object.values(actualSpread))
+            console.log(spreadSpread);
 
+            stats.innerText = nature[0] + Object.values(statSpread)[Object.keys(0)];
+            
         })
 
         
@@ -257,5 +271,6 @@ function smogon(pokemon) {
 
 renderPokemon();
 
-// eventlistner for searchbutton
+// eventlistener for searchbutton
 pokeFormEl.addEventListener('submit', pokeForm);
+
