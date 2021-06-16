@@ -42,10 +42,4 @@ button {
     max-width: 100%;
 }
 
- .smogon-search-results{
-    display: flex;
-    flex-wrap: wrap;
-    /* align-items: center;
-    justify-content: center; 
-    font-family: Georgia, 'Times New Roman', Times, serif; */
- }
+ 
