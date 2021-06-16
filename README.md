@@ -8,8 +8,7 @@
 ## Introduction
 
 </center>
-
-* The [Pokedex](https://pokeapi.com/) is any Pokemon Trainer's best friend when it comes to finding information about the monsters they encounter on their journey to becoming Champion.
+* The Pokedex is any Pokemon Trainer's best friend when it comes to finding information about the monsters they encounter on their journey to becoming Champion. 
 
 <center>
 
@@ -33,7 +32,7 @@
 
 </center>
 
-* words
+* The [PokeDex](https://www.pokemon.com/us/pokedex/) is something that everyone that has ever played a Pokemon game is familiar with. It shows the species name, entry number, image, height, and weight. However, almost none of those are relevant to a player that wants to go the distance with that species. What is a competitive player going to do with a Pokemon's height?
 
 <center>
 
@@ -41,7 +40,7 @@
 
 </center>
 
-*  words
+* Our solution was taking the established PokeDex, and adding more information to it that players would actually use. Sure, knowing a species' height would be nice for Trivia Night, but in-game? It doesn't matter to the core gameplay mechanics, which is battling. Our PokeDex adds information ready to go at a moment's notice as soon as the user types in a Pokemon's name.
 
 <center>
 
@@ -49,7 +48,12 @@
 
 </center>
 
-* words
+* The user types in a Pokemon species' name and is presented with information
+* This information is much more useful than the default PokeDex, as it displays useful and relevant stats to the particular species, such as its most common move and it's best base stat.
+* It is quick information for both casual players and competitive players, the latter of which usually work on time constraints per move.
+<p>
+<br>
+As a group, we beleive that Pokemon players need a quick and easy way to search for up-to-date statistics on their favorite Pokemon species.
 
 <center>
 
@@ -57,9 +61,10 @@
 
 </center>
 
-* AS a..
-* I want to..
-* SO THAT I can..
+ * AS a Pokemon player
+* I want to be able to input a Pokemon species' name and retrieve relevant information
+* SO THAT I can determine the Pokemon's value.
+
 
 <center>
 
@@ -67,25 +72,11 @@
 
 </center>
 
-* The PokeDex we created, in a vaccum, is very backend-heavy. The design of the website itself was not particularly world-changing, but the JS and the connections from there are what makes this product truly function. The way that this product works is that once a correctly-spelled entry ("Pokemon") is applied, data is pulled from both APIs used in this project in order to display both entities in a list for the user to read.
-
-<center>
-
-## Technologies Used
-
-</center>
-
-* HTML
-* CSS
-* JavaScript
-* >[PokeAPI](https://pokeapi.co/)
-* >[Smogon Usage API](https://smogon-usage-stats.herokuapp.com/)
-
-<center>
-
-## Example
-
-</center>
+* This project was relatively simple in terms of concept, but much more difficult to execute in practice. 
+* Essentially, there are two API calls happening at the same time, both pulling from the entry the user makes. For example, an entry of "Shuckle" would create a data call for both the entry stats of the species and the competitive data for it.
+<p>
+<br>
+The following script excerpt is what generates the base stats of the entered Pokemon:
 
 ```
 //This Function calls for the basic entry for the Pokemon
@@ -107,13 +98,13 @@ var generalPokedex = function (pokemon) {
                 })
             }
         })
-}
+    }
 
 ```
 
 ```
 
-// This function pulls the base stats for the selected Pokemon
+// This function calls for the species' base stats
 
 var Stats = function (pokemon) {
     var baseStats = 'https://pokeapi.co/api/v2/pokemon/'+pokemon+'/';
@@ -143,20 +134,50 @@ var Stats = function (pokemon) {
                 var weight = data.weight;
 
                 var sprite = data.sprites.front_default;
-
 ```
 
 <center>
 
+## Technologies
+
+</center>
+
+The following technologies were used in the creation of this group project:
+* HTML
+* CSS
+* JavaScript
+* >[PokeAPI](https://pokeapi.co/)
+* >[Smogon Usage API](https://smogon-usage-stats.herokuapp.com/)
+* >[Semantic UI](https://semantic-ui.com/)
+
+<center>
+
+## Example
+
+</center>
+
+* need a final image of webpage here
+
+<center>
+
 ## Future Technologies
-<br></center>
-In the future, we plan on adding the following ideas to the project: 
-<p>
 
-* Adding dynamic backgrounds to the entry screen based on the Pokemon's typing
-* Adding a dropdown list for search history and Competitive tiers
-* If possible, adding in-game music to the background of the website to further drive the "research" theme that the PokeDex represents
+</center>
 
+In the future, further development on this project would include:
 
+* Background colors dynamically changing based on the Pokemon's typing (e.g. Pikachu's background being yellow because it is an Electric type.)
+
+* Adding dropdown lists for search history and competitive tierings.
+
+* Adding in-game background music to the website to further drive the "research" theme the PokeDex represents.
+
+## Documentation
+
+> [Slideshow Presentation](https://docs.google.com/presentation/d/1DJauHTWUznmujo3_CKTUlO700YPjpPNrnjOPGYvZL_M/edit?usp=sharing)
+
+> [PokeAPI](https://pokeapi.co/)
+
+> [Smogon Usage Stats](https://smogon-usage-stats.herokuapp.com/)
 
 
