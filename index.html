@@ -1,46 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <link rel='stylesheet' href='./assets/css/style.css'/>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/1eef38c013.js" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href='./assets/css/style.css'/>
-    <title>PokeDex</title>
+  <!-- Meta Data -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Stylesheets -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+  <link 
+    rel='stylesheet' 
+    href='./assets/css/style.css'
+  />
+  <!-- Is FontAwesome actually being used? See CSS above and JS below -->
+  <script 
+    src="https://kit.fontawesome.com/1eef38c013.js" 
+    crossorigin="anonymous">
+  </script>
+
+  <title>PokeDex</title>
     
     <title>PokeDex</title>
 
 </head>
 <body>
-    <div class= "pokedex-image">
-        <div class= "pokedex-window">
+  <div class="wrapper">
+    <!-- Header and Navigation -->
+    <div class="container">
+      <header>
+        <h1>Welcome to PokeDex!</h1>
+      </header>
+      <nav>
+        <!-- Navigation Menu ??? -->
+      </nav>
     </div>
+    <!-- Semantic UI Grid (16), https://semantic-ui.com/examples/grid.html -->
+    <main>
+      <div class="ui three column grid">
+        <!-- Search Column -->
+        <div class="four wide column">
+          <div class="ui segment">
+            <h2 class="ui header">Search Pokeman by Name:</h2>
+            <!-- Search Field -->
+            <div class="ui search">
+                <form id="poke-form">
+                    <div class="ui icon input">
+                        <input 
+                        id= "poke"
+                        class="poke-form" 
+                        type="text" 
+                        placeholder="Search for a Pokemon . . .">
+                        <i class="search icon"></i>
+                    </div>
+                </form>
+            </div>
+            <!-- Horizontal Divider, Picture of sprite goes here -->
+            <div class="ui divider"></div>
+            <p><strong></strong></p>
+              <div class="ui card">
+                <div id = "sprite" class="img">
+                <img src="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Poke API Column -->
+        <div class="eight wide column">
+            <div class="pokeman-search-results">
+                <!-- . . . Poke API Results Go Here . . . -->
+                <p><strong>Poke API Results Go Here</strong></p>
+                <div class="ui card">
+                    <div class="image" id="poke-image">
+                    <img src="assets/images/placeholder-image.png">
+                    </div>
+                    <div class="content">
+                        <a class="header" id="pokemon-name"></a>
+                        <div class="pokeapi-info">
+                            <p id = type></p>
+                            <p id="hp"></p>
+                            <p id="attack"></p>
+                            <p id="defense"></p>
+                            <p id="special_att"></p>
+                            <p id="special_def"></p>
+                            <p id="speed"></p>
+                            <p id="bst"></p>
+                            <p id="height"></p>
+                            <p id="weight"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Smogon Usage Stats API Column -->
+        <div class="four wide column">
+          <div class="smogon-search-results">
+                <!-- . . . Smogon API Results Go Here . . . -->
+                <p><strong>Smogon API Results Go Here</strong></p>
+                <div class="ui card">
+                    <div class="image">
+                    <img src="assets/images/placeholder-image.png">
+                    </div>
+                    <div class="content">
+                        <a class="header" id="pokemon-name"></a>
+                        <div class="smogonapi-info">
+                            <h4>Abilities</h4>
+                            <p id="ability"></p>
+                            <h4>Items</h4>
+                            <p id="items"></p>
+                            <h4>Moves</h4>
+                            <p id="moves"></p>
+                            <h4>Stat Spreads</h4>
+                            <p id="spreads"></p>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </main>
+    <footer>
 
-    <div class="ui-modal">
+    </footer>
+  </div>
+
+  
+  
+    <!-- Is this actually being used in the project or just a filler for now? -->
+
+        <!-- <div class= "pokedex-image">
+            <div class= "pokedex-window">
+        </div> -->
+
+    <!-- Reworked layout, delete <input> after testing -->
+
+        <!-- <div class = "poke-form">
+            <div class="ui action input">
+                <input type="text" placeholder="Search...">
+                <button class="ui icon button">
+                    <i class="search icon"></i>
+                </button>
+            </div>
+        </div> -->
+
+
+    <!-- REVIEW NEXT, Incorporate anything to keep below to the grid above -->
+
+     <!-- <div class="ui-modal">
         <i class="close icon"></i>
-        <div class="header">
-          Profile Picture
+        <div class="header" id="picture">
+          Pokemon Name:
         </div>
         <div class="image content">
           <div class="ui medium image">
-            <img src="/images/avatar/large/chris.jpg">
+            <img src="assets/images/placeholder-image.png">
           </div>
           <div class="description">
-            <div class="ui header">We've auto-chosen a profile image for you.</div>
-            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
+            <div class="ui header" id="pokemon-name">We've auto-chosen a profile image for you.</div>
+            <p></p>
+            <p></p>
           </div>
         </div>
         <div class="actions">
@@ -52,15 +180,15 @@
             <i class="checkmark icon"></i>
           </div>
         </div>
-    </div>
+    </div> -->
+
+   
  
 
-
-
+    <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 <script src= "assets/js/script.js"></script>

@@ -1,12 +1,22 @@
+# <center><img src="https://cdn2.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png" alt="PokeDex Logo" title="PokeDex">
+
 # Welcome to Project One - "The PokeDex"
 
-The intended audience . . . 
 
-The purpose of this guide . . .
+<center>
 
-<br/>
+## Introduction
 
-## I. Team Members
+</center>
+
+* The [Pokedex](https://pokeapi.com/) is any Pokemon Trainer's best friend when it comes to finding information about the monsters they encounter on their journey to becoming Champion.
+
+<center>
+
+## Team Members
+
+</center>
+<center>
 
 > [Allen Ladd](https://github.com/Aladd616)
 
@@ -16,171 +26,137 @@ The purpose of this guide . . .
 
 > [CJ Trahey](https://github.com/cjtrahey)
 
-<a href="https://aimeos.org/">
-    <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
-</a>
+</center>
+<center>
 
-The [Pokedex](https://pokeapi.com/) is any Pokemon Trainer's best friend when it comes to finding information about the monsters they encounter on their journey to becoming Champion.
+## Product
 
-[! [PokeDex Demo] (link to screenshot)]
-[![Aimeos TYPO3 demo](https://aimeos.org/fileadmin/user_upload/typo3-demo.jpg)](http://typo3.demo.aimeos.org/)
+</center>
 
-## Table of Contents
+* words
 
-* [Team Members](#team-members)
+<center>
 
+## Solution
 
+</center>
 
-## Installation
+*  words
 
-This document is for the latest Aimeos TYPO3 **20.10 release and later**.
+<center>
 
-- Stable release: 21.04 (TYPO3 9/10 LTS)
-- LTS release: 20.10 (TYPO3 9/10 LTS)
+## Concept
 
-### TYPO3 extension repository
+</center>
 
-If you want to install Aimeos into your existing TYPO3 installation, the [Aimeos extension from the TER](https://typo3.org/extensions/repository/view/aimeos) is recommended. You can download and install it directly from the Extension Manager of your TYPO3 instance.
+* words
 
-For new TYPO3 installations, there's a 1-click [Aimeos distribution](https://typo3.org/extensions/repository/view/aimeos_dist) available too. Choose the Aimeos distribution from the list of available distributions in the Extension Manager and you will get a completely set up shop system including demo data for a quick start.
+<center>
 
-### Composer
+## User Story
 
-**Note:** Currently, only composer 1.x can be used to install Aimeos for TYPO3 due a version conflict in the TYPO3 composer installer plugin!
+</center>
 
-The latest version can be installed via composer too. This is especially useful if you want to create new TYPO3 installations automatically or play with the latest code. You need to install the composer package first if it isn't already available:
+* AS a..
+* I want to..
+* SO THAT I can..
 
-`php -r "readfile('https://getcomposer.org/installer');" | php -- --filename=composer`
+<center>
 
-In order to tell install TYPO3, you have to execute
+## Simplified Mechanics
 
-`composer create-project typo3/cms-base-distribution myshop`
+</center>
 
-This will install TYPO3 into the ''./myshop/'' directory. Afterwards, you have to edit the composer.json file and add the ''post-install-cmd'' and ''post-update-cmd'' scripts:
+* The PokeDex we created, in a vaccum, is very backend-heavy. The design of the website itself was not particularly world-changing, but the JS and the connections from there are what makes this product truly function. The way that this product works is that once a correctly-spelled entry ("Pokemon") is applied, data is pulled from both APIs used in this project in order to display both entities in a list for the user to read.
 
-```
-    "scripts": {
-        "post-install-cmd": [
-            "Aimeos\\Aimeos\\Custom\\Composer::install"
-        ],
-        "post-update-cmd": [
-            "Aimeos\\Aimeos\\Custom\\Composer::install"
-        ]
-    }
-```
+<center>
 
-Then, install the Aimeos extension for TYPO3 with:
+## Technologies Used
 
-`composer req aimeos/aimeos-typo3:~21.4`
+</center>
 
-This will install TYPO3 9.5 and the latest Aimeos TYPO3 extension. The Aimeos composer script will be executed automatically, which copies some required files and adds a link to the Aimeos extensions placed in the ./ext/ directory.
+* HTML
+* CSS
+* JavaScript
+* >[PokeAPI](https://pokeapi.co/)
+* >[Smogon Usage API](https://smogon-usage-stats.herokuapp.com/)
 
-## TYPO3 setup
+<center>
 
-### Database setup
+## Example
 
-If you use MySQL < 5.7.8, you have to use `utf8` and `utf8_unicode_ci` instead because those MySQL versions can't handle the long indexes created by `utf8mb4` (up to four bytes per character) and you will get errors like
+</center>
 
 ```
-1071 Specified key was too long; max key length is 767 bytes
-```
+//This Function calls for the basic entry for the Pokemon
 
-To avoid that, change your database settings in your `./typo3conf/LocalConfiguration.php` to:
+var generalPokedex = function (pokemon) {
+    var pokeApi = 'https://pokeapi.co/api/v2/pokemon-species/'+pokemon+'/';
 
-```
-'DB' => [
-    'Connections' => [
-        'Default' => [
-            'tableoptions' => [
-                'charset' => 'utf8',
-                'collate' => 'utf8_unicode_ci',
-            ],
-            // ...
-        ],
-    ],
-],
-```
+    fetch(pokeApi)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+                    console.log(data);
+                    
+                    const entry = data.flavor_text_entries.find(fte=>fte.language.name ==='en')
+                    console.log(entry)
 
-### Security
-
-Since **TYPO3 9.5.14+** implements **SameSite cookie handling** and restricts when browsers send cookies to your site. This is a problem when customers are redirected from external payment provider domain. Then, there's no session available on the confirmation page. To circumvent that problem, you need to set the configuration option `cookieSameSite` to `none` in your `./typo3conf/LocalConfiguration.php`:
+                    
+                })
+            }
+        })
+}
 
 ```
-    'FE' => [
-        'cookieSameSite' => 'none'
-    ]
+
 ```
 
-### Extension
+// This function pulls the base stats for the selected Pokemon
 
-* Log into the TYPO3 back end
-* Click on ''Admin Tools::Extension Manager'' in the left navigation
-* Click the icon with the little plus sign left from the Aimeos list entry (looks like a lego brick)
+var Stats = function (pokemon) {
+    var baseStats = 'https://pokeapi.co/api/v2/pokemon/'+pokemon+'/';
 
-![Install Aimeos TYPO3 extension](https://aimeos.org/docs/images/Aimeos-typo3-extmngr-install.png)
+    fetch(baseStats)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+                    console.log(data);
 
-### Database
+                var hp = Number(data.stats[0].base_stat);
 
-Afterwards, you have to execute the update script of the extension to create the required database structure:
+                var attack = Number(data.stats[1].base_stat);
 
-![Execute update script](https://aimeos.org/docs/images/Aimeos-typo3-extmngr-update-7.x.png)
+                var defense = Number(data.stats[2].base_stat);
 
-## Page setup
+                var special_att = Number(data.stats[3].base_stat);
 
-The page setup for an Aimeos web shop is easy if you import the example page tree for TYPO3 9/10:
+                var special_def = Number(data.stats[4].base_stat);
 
-* [21.4+ page tree](https://aimeos.org/fileadmin/download/Aimeos-pages_21.4.t3d)
-* [20.10.x page tree](https://aimeos.org/fileadmin/download/Aimeos-pages_20.10.t3d)
+                var speed = Number(data.stats[5].base_stat);
+                // creates base stat total from stat values obtained from api
+                var bst = hp + attack + defense + special_att + special_def + speed;
 
-**Note:** The Aimeos layout expects [Bootstrap](https://getbootstrap.com) providing the grid layout!
+                var height = data.height;
+                var weight = data.weight;
 
-### Go to the import view
+                var sprite = data.sprites.front_default;
 
-* In Web::Page, root page (the one with the globe)
-* Right click on the globe
-* Move the cursor to "Branch actions"
-* In the sub-menu, click on "Import from .t3d"
+```
 
-![Go to the import view](https://aimeos.org/docs/images/Aimeos-typo3-pages-menu.png)
+<center>
 
-### Upload the page tree file
+## Future Technologies
+<br></center>
+In the future, we plan on adding the following ideas to the project: 
+<p>
 
-* In the page import dialog
-* Select the "Upload" tab (2nd one)
-* Click on the "Select" dialog
-* Choose the file you've downloaded
-* Press the "Upload files" button
+* Adding dynamic backgrounds to the entry screen based on the Pokemon's typing
+* Adding a dropdown list for search history and Competitive tiers
+* If possible, adding in-game music to the background of the website to further drive the "research" theme that the PokeDex represents
 
-![Upload the page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-upload.png)
 
-### Import the page tree
 
-* In Import / Export view
-* Select the uploaded file from the drop-down menu
-* Click on the "Preview" button
-* The pages that will be imported are shown below
-* Click on the "Import" button that has appeared
-* Confirm to import the pages
-
-![Import the uploaded page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-import.png)
-
-Now you have a new page "Shop" in your page tree including all required sub-pages.
-
-### SEO-friendly URLs
-
-TYPO3 9.5 and later can create SEO friendly URLs if you add the rules to the site config:
-[https://aimeos.org/docs/latest/typo3/setup/#seo-urls](https://aimeos.org/docs/latest/typo3/setup/#seo-urls)
-
-## License
-
-The Aimeos TYPO3 extension is licensed under the terms of the GPL Open Source
-license and is available for free.
-
-## Links
-
-* [Web site](https://aimeos.org/integrations/typo3-shop-extension/)
-* [Documentation](https://aimeos.org/docs/TYPO3)
-* [Forum](https://aimeos.org/help/typo3-extension-f16/)
-* [Issue tracker](https://github.com/aimeos/aimeos-typo3/issues)
-* [Source code](https://github.com/aimeos/aimeos-typo3)
 
