@@ -76,7 +76,7 @@ As a group, we beleive that Pokemon players need a quick and easy way to search 
 * Essentially, there are two API calls happening at the same time, both pulling from the entry the user makes. For example, an entry of "Shuckle" would create a data call for both the entry stats of the species and the competitive data for it.
 <p>
 <br>
-The following script excerpt is what generates the base stats of the entered Pokemon:
+The following script excerpts are what generates the PokeDex entry and the base stats of the entered Pokemon:
 
 ```
 //This Function calls for the basic entry for the Pokemon

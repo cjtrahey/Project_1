@@ -21,33 +21,59 @@ var item = document.getElementById('items');
 var typeShow = document.getElementById('type');
 
 var pokeSprite = document.getElementById('sprite');
+var pokeName = document.getElementById('pokemon-name');
+var history = document.querySelector('#history');
+var description = document.getElementById('description');
 
 var pastPokemon = [];
 console.log('pastpokemon', pastPokemon);
 
-function pokestorage () {
-    var form = document.createElement('form');
-    form.className = 'previousFrom';
+var typeList
 
-    var select = document.createElement('select')
-    select.setAttribute =('id', 'myPokemon');
 
-    for (var i = 0; i < pastPokemon.length; i++) {
-        var option = document.createElement('option')
-        option.innerText = pastPokemon[i];
-        // select.appendChild(pastPokemon[i])
-    }
-}
+
+// function pokestorage () {
+//     var form = document.createElement('form');
+//     form.className = 'previousFrom';
+
+//     var select = document.createElement('select')
+//     select.setAttribute =('id', 'myPokemon');
+
+//     for (var i = 0; i < pastPokemon.length; i++) {
+//         var option = document.createElement('option')
+//         option.innerText = pastPokemon[i];
+//         // select.appendChild(pastPokemon[i])
+//     }
+// }
 
 // stores the pokemon data in an array in local starage
 var storedPokemon = JSON.parse(localStorage.getItem('Pokemon'));
 console.log('storedPokemon',storedPokemon);
+
+if (storedPokemon != null){
+    pastPokemon = storedPokemon;
+}
+
+function renderPokemon() {
+    for (var i = 0; i < pastPokemon; i++) {
+        history.innerHTML = "";
+        var poke = pastPokemon[i];
+
+        var li = document.createElement('li');
+        li.textContent = poke;
+        li.setAttribute('data-index', i);
+
+        history.appendChild(li);
+    }
+}
+
 
 // function of the search button
 var pokeForm = function (event){
     event.preventDefault();
 
     var pokemon = pokeInputEl.value.trim();
+    pokeName.innerText = pokemon;
     if(pokemon) {
 
         generalPokedex(pokemon);
@@ -57,6 +83,18 @@ var pokeForm = function (event){
         localStorage.setItem('Pokemon', JSON.stringify(pastPokemon));
         Stats(pokemon);
         console.log(pokemon);
+
+        var parent;
+
+        for(typeList in pokeName) {
+            parent = typeList.parentNode;
+            parent.removeChild(typeList);
+        }
+
+        if(image){
+            removeChild(image);
+        }
+       
 
     } else {
         alert('Please enter a generation 8 Overused pokemon and check spelling')
@@ -77,7 +115,8 @@ var generalPokedex = function (pokemon) {
                     
                     const entry = data.flavor_text_entries.find(fte=>fte.language.name ==='en')
                     console.log(entry)
-
+                    var flavor = entry.flavor_text;
+                    description.innerText = flavor;
                     
                 })
             }
@@ -148,17 +187,20 @@ var Stats = function (pokemon) {
 
 
 // locates sprite image in api object and creates element to display
+                
                 var image = document.createElement('img')
                     image.src = sprite
                     document.getElementById("sprite").appendChild(image)
-
+                    
 
                 for (var i = 0; i < data.types.length; i++) {
-                    var type = data.types[i].type;
-                    var typeObject = Object.values(type)
-                    console.log('type',typeObject);
-                    typeShow.innerText = typeObject;
-
+                    
+                    var type = data.types[i].type.name;
+                    console.log('type',type);
+                    
+                    var typeList = document.createElement('p')
+                    typeList.innerText = "Type: " + type;
+                    pokeName.appendChild(typeList);
                 }
 
                 })
@@ -191,19 +233,43 @@ function smogon(pokemon) {
             item.innerText = itemArray;
 
             console.log('moves',moves);
-            movesArray = JSON.stringify(moves)
+            var moveList = Object.keys(moves); 
+            movesArray = JSON.stringify(moveList);
             pokeMoves.innerText = movesArray;
 
             console.log('spreads',spreads)
             statsArray = JSON.stringify(spreads)
-            stats.innerText = statsArray;
+            
+           var nature = Object.keys(spreads);
+            var statSpread = Object.values(spreads);
+            var superSpread = Object.values(statSpread);
+            var actualSpread = (Object.values(superSpread));
+            var spreadSpread = (Object.values(actualSpread))
+            console.log(spreadSpread);
 
+            stats.innerText = nature[0] + Object.values(statSpread)[Object.keys(0)];
+            
         })
 
         
 
 }
 
+// for (var i=0; i < storedPokemon.length; i++) {
+//     var pokemonButton = document.createElement('input');
+
+//     pokemonButton.setAttribute("type","text");
+//     pokemonButton.setAttribute('readonly',"true");
+//     pokemonButton.getAttribute('value', storedPokemon[i]);
+//     pokemonButton.addEventListener('click',function() {
+//         generalPokedex(pokemonButton.value);
+//         Stats(pokemonButton.value);
+//         smogon(pokemonButton.value);
+//     })
+//     document.body.append(pokemonButton);
+// }
+
+renderPokemon();
 
 // eventlistener for searchbutton
 pokeFormEl.addEventListener('submit', pokeForm);

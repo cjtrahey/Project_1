@@ -52,7 +52,7 @@
         <!-- Search Column -->
         <div class="four wide column">
           <div class="ui segment">
-            <h2 class="ui header">Search Pokeman by Name:</h2>
+            <h2 class="ui header">Search Pokemon by Name:</h2>
             <!-- Search Field -->
             <div class="ui search">
                 <form id="poke-form">
@@ -77,18 +77,17 @@
           </div>
         </div>
         <!-- Poke API Column -->
-        <div class="eight wide column">
+        <div class="six wide column">
             <div class="pokeman-search-results">
                 <!-- . . . Poke API Results Go Here . . . -->
-                <p><strong>Poke API Results Go Here</strong></p>
+                <p><strong>Poke API Results</strong></p>
                 <div class="ui card">
                     <div class="image" id="poke-image">
-                    <img src="assets/images/placeholder-image.png">
+                    <img id="pokeapi-image"src="assets/images/pokeapi_256.png">
                     </div>
                     <div class="content">
                         <a class="header" id="pokemon-name"></a>
                         <div class="pokeapi-info">
-                            <p id = type></p>
                             <p id="hp"></p>
                             <p id="attack"></p>
                             <p id="defense"></p>
@@ -98,19 +97,21 @@
                             <p id="bst"></p>
                             <p id="height"></p>
                             <p id="weight"></p>
+                            <h4>Dex Entry</h4>
+                            <p id= "description"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Smogon Usage Stats API Column -->
-        <div class="four wide column">
+        <div class="six wide column">
           <div class="smogon-search-results">
                 <!-- . . . Smogon API Results Go Here . . . -->
-                <p><strong>Smogon API Results Go Here</strong></p>
+                <p><strong>Smogon API Results</strong></p>
                 <div class="ui card">
-                    <div class="image">
-                    <img src="assets/images/placeholder-image.png">
+                    <div class="image" id="smogon-image-box">
+                    <img id ="smogon-image" src="assets/images/zracknel-beta.svg">
                     </div>
                     <div class="content">
                         <a class="header" id="pokemon-name"></a>
@@ -128,6 +129,7 @@
                 </div>
           </div>
         </div>
+        <ul id = "history"></ul>
     </main>
     <footer>
 
