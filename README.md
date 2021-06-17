@@ -8,7 +8,7 @@
 ## Introduction
 
 </center>
-* The Pokedex is any Pokemon Trainer's best friend when it comes to finding information about the monsters they encounter on their journey to becoming Champion. 
+The Pokedex is any Pokemon Trainer's best friend when it comes to finding information about the monsters they encounter on their journey to becoming Champion. 
 
 <center>
 
