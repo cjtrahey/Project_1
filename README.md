@@ -62,7 +62,7 @@ As a group, we beleive that Pokemon players need a quick and easy way to search 
 </center>
 
  * AS a Pokemon player
-* I want to be able to input a Pokemon species' name and retrieve relevant information
+* I WANT TO be able to input a Pokemon species' name and retrieve relevant information
 * SO THAT I can determine the Pokemon's value.
 
 
